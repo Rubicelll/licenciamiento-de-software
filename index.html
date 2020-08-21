@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Licencias</title>
+        <link rel="shortcut icon" href="assets/img/favicon.jpg">
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="lib/alertifyjs/css/alertify.min.css"/>
+        <link rel="stylesheet" href="css/master.css"/>
+        <link rel="stylesheet" href="css/tables.css">
+        <link rel="stylesheet" href="css/forms.css">
+        <!--datables CSS básico-->
+        <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
+        <!--datables estilo bootstrap 4 CSS-->
+        <link rel="stylesheet"  type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-header">
+            <a class="navbar-brand" href="index.html">Licencias</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="login.html">Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Inicio</div>
+                            <button class="btn btn-link nav-link" id="btnDashboard">Reportes</button>
+                            <div class="sb-sidenav-menu-heading">Modulos</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLincences" aria-expanded="false" aria-controls="collapsePresos">
+                              Lincencias
+                              <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </a>
+                            <div class="collapse" id="collapseLincences" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                  <button class="btn btn-link nav-link" id="btnLincences">Licencias</button>
+                                  <button class="btn btn-link nav-link" id="btnLicenseTypes">Tipos de licencia</button>
+                                  <button class="btn btn-link nav-link" id="btnAcquisitionModes">Modos de adquisicion</button>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
+                              Productos de software
+                              <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                              </div>
+                            </a>
+                            <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                  <button class="btn btn-link nav-link" id="btnProducts">Productos</button>
+                                  <button class="btn btn-link nav-link" id="btnCategories">Categorias</button>
+                                </nav>
+                            </div>
+                            <button class="btn btn-link nav-link" id="btnPersonal">Personal</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main id="main">
+                  <!-- container -->
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Licenciamiento de software 2020</div>
+                            <div>
+                                <a href="#">Politicas de Privacidad</a>
+                                &middot;
+                                <a href="#">Terminos &amp; Condiciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Datos del producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="recluse-form-update">
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="form row">
+                      <input type="text" id="u-idProduct" hidden>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="u-nameProduct">Nombre del producto</label>
+                          <input type="text" class="form-control" id="u-nameProduct" aria-describedby="nombre del producto">
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="u-version">Versión</label>
+                          <input type="text" class="form-control" id="u-version" aria-describedby="versión del producto">
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="u-quantityProducts">Cantidad de productos</label>
+                          <input type="text" class="form-control" id="u-quantityProducts" aria-describedby="Cantidad de productos de software">
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="u-installationRequirements">Requisitos de instalación</label>
+                          <textarea class="form-control" id="u-installationRequirements" rows="3" aria-describedby="requisitos de instalación"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <div class="form-group">
+                            <label>Categorías</label>
+                            <div id="u-categories">
+                              <!-- .... -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <div class="form-group">
+                            <label>Disponibilidad</label>
+                            <div id="u-availability">
+                            <!-- .... -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" onclick="updateProduct()">Actualizar</button>
+                  <button type="button" class="btn btn-danger" onclick="deleteProduct()">Eliminar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalLicense" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Datos de la licencia</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="license-form-update">
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="form row">
+                      <input type="text" id="u-idLicense" hidden>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="name">Nombre de la lincencia</label>
+                          <input type="text" class="form-control" id="u-LicenseName" aria-describedby="nombre de la licencia">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="quantity">Cantidad de lincencias</label>
+                          <input type="number" class="form-control" id="u-LicenseQuantity" aria-describedby="Cantidad de lincencias">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="startingValidity">Vigencia de inicio</label>
+                          <input type="date" class="form-control" id="u-LicenseStartingValidity" aria-describedby="Vigencia de inicio">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="termValidity">Vigencia de termino</label>
+                          <input type="date" class="form-control" id="u-LicenseTermValidity" aria-describedby="Vigencia de termino">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="contractNumber">No. contrato</label>
+                          <input type="text" class="form-control" id="u-LicenseContractNumber" aria-describedby="Número de contrato">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="acquisitionPrice">Precio de adquisición</label>
+                          <input type="number" class="form-control" id="u-LicenseAcquisitionPrice" aria-describedby="Precio de adquisición" step="0.01">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="maker">Fabricante</label>
+                          <input type="text" class="form-control" id="u-LicenseMaker" aria-describedby="Fabricante">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="provider">Proveedor</label>
+                          <input type="text" class="form-control" id="u-LicenseProvider" aria-describedby="Proveedor">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="impact">Impacto</label>
+                          <input type="text" class="form-control" id="u-LicenseImpact" aria-describedby="Impacto">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label for="comments">Comentarios</label>
+                          <input type="text" class="form-control" id="u-LicenseComments" aria-describedby="Comentarios">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                        <label for="acquisitionMode">Modo de adquisición</label>
+                          <select class="form-control" id="u-LicenseAcquisitionMode">
+                            <!-- .... -->
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                        <label for="licenseType">Tipo de licencia</label>
+                          <select class="form-control" id="u-LicenseType">
+                            <!-- .... -->
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="form-group">
+                          <label>Disponibilidad</label>
+                          <div id="u-LicenseAvailability">
+                          <!-- .... -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-xl-4">
+                        <div class="form-group">
+                          <label>Productos</label>
+                          <div id="u-LicenseProducts">
+                          <!-- .... -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" onclick="updateLicense()">Actualizar</button>
+                  <button type="button" class="btn btn-danger" onclick="deleteLicense()">Eliminar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <script src="lib/ajax/libs/font-awesome/5.11.2/js/all.min.js"></script>
+        <script src="lib/jquery-3.4.1.min.js" charset="utf-8"></script>
+        <script src="lib/bootstrap/4.5.2/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+        <script src="lib/sweetalert/sweetalert.min.js" charset="utf-8"></script>
+        <script src="lib/alertifyjs/alertify.min.js"></script>
+
+        <!-- datatables JS -->
+        <script type="text/javascript" src="datatables/datatables.min.js"></script>
+
+        <!-- para usar botones en datatables JS -->
+        <script src="datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+        <script src="datatables/JSZip-2.5.0/jszip.min.js"></script>
+        <script src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+        <script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+        <script src="datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+
+        <script src="js/scripts.js"></script>
+        <script src="js/index.js" charset="utf-8"></script>
+        <script src="js/personal.js" charset="utf-8"></script>
+        <script src="js/categories.js" charset="utf-8"></script>
+        <script src="js/acquisitionModes.js" charset="utf-8"></script>
+        <script src="js/licenseTypes.js" charset="utf-8"></script>
+        <script src="js/products-data.js" charset="utf-8"></script>
+        <script src="js/products.js" charset="utf-8"></script>
+        <script src="JS/products-insert.js" charset="utf-8"></script>
+        <script src="js/products-update.js" charset="utf-8"></script>
+        <script src="js/licenses-data.js" charset="utf-8"></script>
+        <script src="js/licences.js" charset="utf-8"></script>
+        <script src="js/licences-insert.js" charset="utf-8"></script>
+        <script src="js/licenses-update.js" charset="utf-8"></script>
+    </body>
+</html>
